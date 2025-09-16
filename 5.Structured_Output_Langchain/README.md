@@ -24,4 +24,4 @@ Structured outputs make LLM responses **predictable** and easier to integrate in
 - APIs  
 - Automation workflows  
 - Multi-agent systems  
-- Data pipelines  
+- Data pipelines
