@@ -9,17 +9,20 @@ model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 parser = StrOutputParser()
 
-tempelate = PromptTemplate(
-    template="Generate 5 interesting facts about {topic} \n",
+tempelate1 = PromptTemplate(
+    template="Generate Detailed report about {topic} \n",
     input_variables=['topic'],
     )
 
-chain = tempelate | model | parser
+tempelate2 = PromptTemplate(
+    template="generate top 5 key pointers from this report \n {text}",
+    input_variables=['text']
+)
+
+chain = tempelate1 | model | parser | tempelate2 | model | parser
 
 result = chain.invoke({
     'topic':"Quetta"
 })
 
 print(result)
-
-chain.get_graph().print_ascii()
