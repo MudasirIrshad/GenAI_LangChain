@@ -41,9 +41,9 @@ negative_feedback_prompt = PromptTemplate(
 )
 
 branch_chain = RunnableBranch(
-    (lambda x:x.sentiment == 'Positive', positive_feedback_prompt | model | parser),
+    (lambda x:x.sentiment == 'Positive', positive_feedback_prompt | model | parser), # type: ignore
 
-    (lambda x:x.sentiment == 'Negative', negative_feedback_prompt | model | parser),
+    (lambda x:x.sentiment == 'Negative', negative_feedback_prompt | model | parser), # type: ignore
     
     RunnableLambda (lambda x: "could not find any sentiment")
 )
