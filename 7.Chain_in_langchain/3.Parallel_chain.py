@@ -163,8 +163,10 @@ Conclusion
 
 Agentic AI is not just an incremental upgrade to traditional AI — it is a fundamental leap toward machines that can think, plan, and act with purpose. By combining autonomy, reasoning, and tool use, Agentic AI enables applications that are more powerful, reliable, and impactful. Whether in business, research, or personal life, this new wave of AI has the potential to redefine how humans interact with technology and accelerate innovation across every industry.
 """
+
+
 result = chain.invoke({
     'text': text
 })
 
-print(result)
+print(chain.get_graph().print_ascii())
